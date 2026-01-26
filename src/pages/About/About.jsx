@@ -1,134 +1,170 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './About.css';
-import { imageLinks } from '../../assets/S3Bucket/5beansAssets';
 
 const About = () => {
-  useEffect(() => {
-    const handleScroll = () => {
-      const elements = document.querySelectorAll('.about-section, .signature-item');
-      elements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          el.style.opacity = '1';
-          el.style.transform = 'translateY(0)';
+    const sectionsRef = useRef([]);
+    const cardsRef = useRef([]);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const triggerBottom = window.innerHeight * 0.8;
+
+            sectionsRef.current.forEach(section => {
+                if (section) {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    if (sectionTop < triggerBottom) {
+                        section.classList.add('visible');
+                    }
+                }
+            });
+
+            cardsRef.current.forEach(card => {
+                if (card) {
+                    const cardTop = card.getBoundingClientRect().top;
+                    if (cardTop < triggerBottom) {
+                        card.classList.add('visible');
+                    }
+                }
+            });
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initial check
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const addToSectionsRef = (el) => {
+        if (el && !sectionsRef.current.includes(el)) {
+            sectionsRef.current.push(el);
         }
-      });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const addToCardsRef = (el) => {
+        if (el && !cardsRef.current.includes(el)) {
+            cardsRef.current.push(el);
+        }
+    };
 
-  return (
-    <div className="about-page">
-      {/* Hero Section */}
-      <div className="about-hero">
-        <img 
-          src={imageLinks.aboutHeaderImg} 
-          alt="5 Beans Coffee Shop exterior" 
-          className="hero-image" 
-        />
-        <div className="hero-overlay">
-          <h1>Our Story</h1>
-          <p>From bean to brew - a journey of passion and perfection</p>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="about-content">
-        <div className="about-section">
-          <div className="about-text">
-            <h2>About 5 Beans Coffee Shop</h2>
-            <p className="lead-text">
-              We are five passionate individuals, family and friends, united by our devotion to exceptional coffee.
-            </p>
-            <p>
-              What began as a shared dream in Australia's vibrant café culture has blossomed into a beloved institution in Lebanon. At 5 Beans, we've mastered the alchemy of transforming premium beans into moments of connection and joy.
-            </p>
-            <p>
-              Our journey from a cozy neighborhood café to our new Dekweneh location reflects the warmth and loyalty of our community. Each expansion brings new faces to our family of skilled artisans, all committed to upholding our exacting standards.
-            </p>
-          </div>
-          <div className="about-image">
-            <img 
-              src={imageLinks.image2About} 
-              alt="Our barista crafting coffee" 
-              className="styled-image" 
-            />
-          </div>
-        </div>
-
-        <div className="about-section reverse">
-          <div className="about-image">
-            <img 
-              src={imageLinks.baristaAbout} 
-              alt="Premium coffee beans selection" 
-              className="styled-image" 
-            />
-          </div>
-          <div className="about-text">
-            <h2>Our Philosophy</h2>
-            <p className="lead-text">
-              Excellence in every detail, from farm to cup.
-            </p>
-            <p>
-              We source only the finest single-origin beans, ethically traded and roasted to perfection. Our partners are small farms committed to sustainable practices, ensuring quality that transcends the ordinary.
-            </p>
-            <p>
-              Every espresso pull, every milk texture, every service interaction reflects our uncompromising standards. We don't just serve coffee, we curate experiences.
-            </p>
-          </div>
-        </div>
-
-        <div className="about-section">
-          <div className="about-text">
-            <h2>The 5 Beans Experience</h2>
-            <p className="lead-text">
-              Where craftsmanship meets comfort.
-            </p>
-            <p>
-              Our spaces are designed as havens, warm industrial interiors with artisanal touches that invite lingering. Whether you're a coffee connoisseur or new to specialty brews, our team guides you through flavor profiles to find your perfect match.
-            </p>
-            <p>
-              From our signature blends to limited-edition single origins, each offering tells a story of terroir and technique. Our seasonal creations push boundaries while honoring tradition.
-            </p>
-          </div>
-          <div className="about-image">
-            <img 
-              src={imageLinks.AboutIcedCoffee} 
-              alt="Exquisite latte art" 
-              className="styled-image" 
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Signature Section */}
-      <div className="signature-section">
-        <div className="signature-content">
-          <h2>Our Signature</h2>
-          <p>
-            The 5 Beans Blend - A harmonious balance of chocolatey depth and bright citrus notes, roasted exclusively for our shops. Experience why this proprietary blend has become the hallmark of our identity.
-          </p>
-          <div className="signature-items">
-            <div className="signature-item">
-              <h3>Single Origin Selections</h3>
-              <p>Seasonal offerings from world-renowned coffee regions</p>
+    return (
+        <div className="about-page">
+            {/* Decorative Elements */}
+            <div className="floating-ornament">
+                <span style={{ fontSize: '2rem' }}>👑</span>
             </div>
-            <div className="signature-item">
-              <h3>Artisanal Brew Methods</h3>
-              <p>Chemex, V60, AeroPress, and Syphon preparations</p>
+            <div className="floating-ornament">
+                <span style={{ fontSize: '2rem' }}>✨</span>
             </div>
-            <div className="signature-item">
-              <h3>House-made Pastries</h3>
-              <p>Freshly baked daily using premium local ingredients</p>
+            <div className="floating-ornament">
+                <span style={{ fontSize: '2rem' }}>⭐</span>
             </div>
-          </div>
+            <div className="floating-ornament">
+                <span style={{ fontSize: '2rem' }}>🍪</span>
+            </div>
+
+            <section className="purpose-section">
+                <h5 className="purpose-label">OUR PURPOSE</h5>
+
+                <div className="purpose-main">
+                    <div className="purpose-text">
+                        <h1>Crafted with Care.</h1>
+                        <h1>Made to be Shared</h1>
+                    </div>
+
+                    <div className="purpose-image">
+                        <img src="https://s3.us-east-1.amazonaws.com/cdn.betdevelopers.com/images/jmjs/Beiruttino/ChatGPT+Image+Jan+10%2C+2026%2C+11_01_01+AM+1.png" alt="Beiruttino logo" />
+                    </div>
+                </div>
+
+                <p className="purpose-description">
+                    At Beiruttino, great food begins with intention. We focus on quality
+                    ingredients, careful craftsmanship, and consistency in every detail
+                    creating simple moments meant to be shared.
+                </p>
+                <div className="purpose-chips">
+                    <div className="purpose-chip">Quality</div>
+                    <div className="purpose-chip">Service</div>
+                    <div className="purpose-chip">Care</div>
+                </div>
+
+            </section>
+
+
+            {/* Main Content */}
+            <div className="about-content">
+                {/* Heritage Section */}
+                <div className="about-section" ref={addToSectionsRef}>
+                    <div className="about-text">
+                        <h2>QUALITY</h2>
+                        <p>
+                            Quality is never an accident. It comes from thoughtful choices, attention to detail, and a commitment to doing things the right way. We focus on consistency, refinement, and respect for the process in everything we create.
+                        </p>
+                    </div>
+                    <div className="about-image">
+                        <img
+                            src="https://s3.us-east-1.amazonaws.com/cdn.betdevelopers.com/images/jmjs/Beiruttino/Frame+19.png"
+                            alt="Vintage baking tools and recipe books"
+                            className="styled-image"
+                            onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = 'https://via.placeholder.com/600x600/1A1A1A/FFFFFF?text=Heritage+Craftsmanship';
+                            }}
+                        />
+                    </div>
+                </div>
+
+                {/* Craftsmanship Section */}
+                <div className="about-section reverse" ref={addToSectionsRef}>
+                    <div className="about-image">
+                        <img
+                            src="https://s3.us-east-1.amazonaws.com/cdn.betdevelopers.com/images/jmjs/Beiruttino/Frame+19+(1).png"
+                            alt="Master baker crafting biscuits"
+                            className="styled-image"
+                            onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = 'https://via.placeholder.com/600x600/1A1A1A/FFFFFF?text=Master+Craftsmanship';
+                            }}
+                        />
+                    </div>
+                    <div className="about-text">
+                        <h2>SERVICE</h2>
+                        <p>
+Service means being reliable, approachable, and thoughtful in everything we do. From how our products are made to how they are shared, we believe good service builds trust and lasting relationships.                        </p>
+                        
+                    </div>
+                </div>
+
+                {/* Innovation Section */}
+                <div className="about-section" ref={addToSectionsRef}>
+                    <div className="about-text">
+                        <h2>CARE</h2>
+                        
+                        <p>
+                            Care is at the heart of Beiruttino. We care about our ingredients, our craft, and the people who enjoy our products. It’s this care that turns simple food into meaningful moments.</p>
+                        <p>
+                            We work directly with sustainable farms worldwide, ensuring fair trade practices
+                            and supporting local communities. Every Beiruttino biscuit represents not just
+                            culinary excellence, but ethical responsibility.
+                        </p>
+                    </div>
+                    <div className="about-image">
+                        <img
+                            src="https://s3.us-east-1.amazonaws.com/cdn.betdevelopers.com/images/jmjs/Beiruttino/Frame+19+(2).png"
+                            alt="Sustainable ingredients and packaging"
+                            className="styled-image"
+                            onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = 'https://via.placeholder.com/600x600/1A1A1A/FFFFFF?text=Sustainable+Luxury';
+                            }}
+                        />
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default About;

@@ -1,54 +1,158 @@
-.album-container {
-    padding: 8px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-        background-color: #f7f0e4;;
+.home-container {
+    position: relative;
+    max-width: 1800px;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 100px;
+}
 
-  }
-  .custom-image{
-    border: 1px solid black;
-    height: 250px;
-  }
-
-  .album-title {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 30px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  /* Masonry layout using CSS columns */
-  .masonry {
-    column-count: 3;
-    column-gap: 15px;
-  }
-  
-  .masonry-img {
+.home-container img {
     width: 100%;
-    margin-bottom: 15px;
-    border-radius: 8px;
+    height: auto;
     display: block;
-    break-inside: avoid;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .masonry-img:hover {
-    transform: scale(1.02);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-  }
-  
-  /* Responsive behavior */
-  @media (max-width: 768px) {
-    .masonry {
-      column-count: 2;
+}
+
+.home-buttons-wrapper {
+    position: absolute;
+    bottom: 15%;
+    left: 5%;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.home-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.5em 1em;
+    font-size: clamp(11px, 1vw, 14px);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    white-space: nowrap;
+    text-align: center;
+    max-width: 200px;
+}
+
+.btn.primary {
+    background-color: #EABE91;
+    color: #000;
+    font-weight: 500;
+}
+
+.btn.secondary {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+}
+
+.btn img {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 480px) {
+    .home-buttons-wrapper {
+        flex-direction: column;
+        gap: 10px;
+        bottom: 20%;
+        left: 5%;
     }
-  }
-  
-  @media (max-width: 480px) {
-    .masonry {
-      column-count: 1;
+
+    .btn img {
+        width: 18px;
+        height: 18px;
     }
-  }
-  
+
+    .btn {
+        padding: 0.4em 0.8em;
+        font-size: 11px;
+        max-width: 100%;
+    }
+}
+
+.home-container2 {
+    margin: 100px 0;
+    padding: 50px auto;
+    display: flex;
+    width: 100vw;
+    padding: 100px;
+    background-color: #EABE9126;
+    box-sizing: border-box;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.home-container2 img {
+    width: 35%;
+    height: auto;
+    display: block;
+}
+
+.home-container3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-container3 img:first-child {
+    max-width: 130px;
+    width: 100%;
+    height: auto;
+    margin: 20px;
+}
+
+.home-container3 img:last-child {
+    margin-top: 30px;
+    max-width: 100%;
+    height: auto;
+}
+
+.home-container4 {
+    width: 100vw;
+}
+
+.home-container4 img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .home-container {
+        padding: 50px 0;
+        width: 95%;
+
+    }
+
+    .home-container2 {
+        padding: 50px;
+        margin: 30px 0;
+    }
+    .home-container2 img {
+    width: 50%;
+
+}
+}
+
+/* Smaller devices */
+@media (max-width: 480px) {
+    .home-container {
+        padding: 30px 0;
+    }
+
+    .home-container2 {
+        padding: 20px;
+        margin: 20px 0;
+
+    }
+}

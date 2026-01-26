@@ -1,48 +1,84 @@
-// import InstagramIcon from '@mui/icons-material/Instagram';
-import "./Footer.css"
-import {Link} from "react-router-dom"
-import { imageLinks } from "../../assets/S3Bucket/5beansAssets";
-// import facebook_icon from "../../assets/food_del/frontend_assets/facebook_icon.png"
-// import linkedin_icon from "../../assets/food_del/frontend_assets/linkedin_icon.png"
+import React from 'react';
+import './Footer.css';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
-  return (
-    <div id="footer" className="footer">
-        <img src={imageLinks.footerFlatWhite} alt="Coffee art" className="footerFlatwhite" />
-        <div className="footer-content">
-            <div className="footer-content-left">
-                <Link to="/"><img src={imageLinks.logoHorizontal} alt="Coffee Shop Logo" className="logo" /></Link>
-                <p>Your premium coffee experience. We source the finest beans and craft each cup with passion and precision.</p>
-                <div className="footer-social-icons">
-                    {/* <img src={facebook_icon} alt="" /> */}
-                    {/* <InstagramIcon  fontSize="large"/> */}
-                    {/* <img src={linkedin_icon} alt="" /> */}
+
+
+    return (
+        <footer className="footer">
+            {/* Decorative Element */}
+            <div className="footer-decoration">
+                🍪
+            </div>
+
+            <div className="footer-content">
+                {/* Top Section */}
+                <div className="footer-top">
+                    {/* Brand Section */}
+
+
+                    {/* Quick Links Section */}
+                    <div className="footer-links-section">
+                        <div className="footer-links">
+                            <ul>
+                                <li>
+                                    <Link to="/">
+                                        <span className="link-icon">→</span>
+                                        <span>Home</span>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/about">
+                                        <span className="link-icon">→</span>
+                                        <span>About Us</span>
+                                    </Link>
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+
+                    {/* Contact & Newsletter Section */}
+                    <div className="contact-section">
+                        <div className="contact-info">
+                            <h3>Contact Us</h3>
+                            <div className="contact-details">
+                                {/* <div className="contact-item">
+                                    <span className="contact-icon">📍</span>
+                                    <span>123 Luxury Avenue<br />Beirut, Lebanon</span>
+                                </div> */}
+                                {/* <div className="contact-item">
+                                    <span className="contact-icon">📞</span>
+                                    <span>+961 1 234 567</span>
+                                </div> */}
+                                <div className="contact-item">
+                                    <span className="contact-icon">✉️</span>
+                                    <span>support@beiruttino.com</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div className="footer-bottom">
+                    <div className="copyright">
+                        © 2026 <strong>Beiruttino</strong> Luxury Biscuits. All rights reserved.
+                    </div>
 
                 </div>
+                
             </div>
+            <div className="footer-brand-section">
+                    <img src="https://s3.us-east-1.amazonaws.com/cdn.betdevelopers.com/images/jmjs/Beiruttino/Group+156.png" alt="Beiruttino Logo" />
+                </div>
+        </footer>
+    );
+};
 
-            <div className="footer-content-center">
-                <h2>COMPANY</h2>
-                <ul>
-                    <a href="/"><li>Home</li></a>
-                    <a href="/about"><li>About Us</li></a>
-                    <a href="/location"><li>Locations</li></a>
-                </ul>
-            </div>
-
-            <div className="footer-content-right">
-                <h2>GET IN TOUCH</h2>
-                <ul>
-                    <li>
-                    <a href="mailto:support@jmjsgroup.com">support@jmjsgroup.com</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <hr />
-        <p className="footer-copyright">copyright 2025 © Hadi Hachem - All Rights Reserved</p>
-    </div>
-  )
-}
-
-export default Footer
+export default Footer;
