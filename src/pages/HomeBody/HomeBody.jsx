@@ -7,13 +7,12 @@ const HomeBody = () => {
     return (
         <>
             <div className="home-container">
-                <img src={imageLinks.header} alt="" />
+                <img src={imageLinks.header} alt="Beiruttino Banner" />
 
                 <div className="home-buttons-wrapper">
                     <div className="home-buttons">
-                        {/* WhatsApp button with icon inside */}
                         <a
-                            href="https://wa.me/961XXXXXXXX"
+                            href="https://wa.me/96170059598"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn primary"
@@ -25,28 +24,36 @@ const HomeBody = () => {
                             START AN ORDER
                         </a>
 
-                        <a href="/about" className="btn secondary">
+                        <Link to="/about" className="btn secondary">
                             EXPLORE
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
 
-
             <div className="home-container2">
-                <img src={imageLinks.frame13} alt="" />
-                <img src={imageLinks.section2} alt="" />
+                <img src={imageLinks.frame13} alt="Beiruttino Craft" />
 
+                <div className="section2-wrapper">
+                    <img src={imageLinks.section2} alt="Beiruttino Biscotti" />
+
+                    <div className="section2-overlay">
+                        <h2>WE CRAFT BISCOTTI</h2>
+                        <p>
+                            Inspired by the baking heritage of Prato, Tuscany, Beiruttino Biscotti are crafted using a classic twice-baked method that delivers a distinctive crunch and rich almond flavor. Every detail reflects our commitment to quality and tradition.
+                        </p>
+                        <Link to="/about">DISCOVER OUR STORY</Link>
+                    </div>
+                </div>
             </div>
 
             <div className="home-container3">
-                <img src={imageLinks.logo2} alt="" />
-                <img src={imageLinks.frame88} alt="" />
-
+                <img src={imageLinks.logo2} alt="Beiruttino Logo" />
+                <img src={imageLinks.frame88} alt="Beiruttino Collection" />
             </div>
-            <div className="home-container4">
-                <img src={imageLinks.section4} alt="" />
 
+            <div className="home-container4">
+                <img src={imageLinks.section4} alt="Beiruttino Experience" />
             </div>
         </>
     );

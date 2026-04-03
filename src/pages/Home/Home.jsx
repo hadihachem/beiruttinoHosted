@@ -8,7 +8,7 @@ const Home = () => {
   const [category, setCategory] = useState("Menu");
 
   return (
-    <div className="home-container">
+    <div>
         <HomeBody />
     </div>
   )

@@ -1,0 +1,73 @@
+/* Color System - Centralized Color Variables */
+:root {
+    /* ===== PRIMARY BRAND COLORS ===== */
+    --color-primary: #B90000;        /* Main brand color (currently red) */
+    --color-primary-dark: #8B0000;    /* Darker variant for hover states */
+    --color-primary-light: #FF3333;   /* Lighter variant for accents */
+    --color-primary-gradient-start: #B90000;
+    --color-primary-gradient-end: #CD7F32; /* Bronze accent */
+    
+    /* ===== SECONDARY COLORS ===== */
+    --color-secondary: #CD7F32;       /* Bronze accent */
+    --color-secondary-dark: #A0661E;
+    --color-secondary-light: #E8A952;
+    
+    /* ===== NEUTRAL COLORS ===== */
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-onyx: #1A1A1A;           /* Deep black/dark gray */
+    --color-ivory: #F8F5F0;          /* Warm off-white/ivory */
+    --color-dark-charcoal: #2C2C2C;  /* Dark text color */
+    --color-gray-light: #F5F5F5;
+    --color-gray-medium: #E0E0E0;
+    --color-gray-dark: #666666;
+    
+    /* ===== BACKGROUND COLORS ===== */
+    --bg-primary: var(--color-white);
+    --bg-secondary: var(--color-ivory);
+    --bg-dark: var(--color-onyx);
+    --bg-overlay: rgba(0, 0, 0, 0.5);
+    --bg-glass: rgba(255, 255, 255, 0.05);
+    
+    /* ===== TEXT COLORS ===== */
+    --text-primary: var(--color-dark-charcoal);
+    --text-secondary: var(--color-onyx);
+    --text-light: var(--color-white);
+    --text-dark: var(--color-black);
+    --text-muted: var(--color-gray-dark);
+    
+    /* ===== BORDER COLORS ===== */
+    --border-light: rgba(255, 255, 255, 0.1);
+    --border-medium: rgba(0, 0, 0, 0.1);
+    --border-dark: rgba(0, 0, 0, 0.2);
+    --border-primary: var(--color-primary);
+    
+    /* ===== STATUS COLORS ===== */
+    --color-success: #4CAF50;
+    --color-warning: #FFC107;
+    --color-error: #F44336;
+    --color-info: #2196F3;
+    
+    /* ===== GRADIENTS ===== */
+    --gradient-primary: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    --gradient-primary-reverse: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+    --gradient-dark: linear-gradient(135deg, var(--color-onyx), var(--color-dark-charcoal));
+    --gradient-gold: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light));
+    --gradient-overlay: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(255, 255, 255, 0.05));
+    
+    /* ===== SHADOWS ===== */
+    --shadow-premium: 0 8px 32px rgba(0, 0, 0, 0.15);
+    --shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.25);
+    --shadow-deep: 0 12px 40px rgba(0, 0, 0, 0.25);
+    --shadow-primary: 0 4px 20px rgba(185, 0, 0, 0.25);
+}
+
+/* If you want to support dark mode, you can add media query */
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Dark mode overrides if needed */
+        --bg-primary: var(--color-onyx);
+        --text-primary: var(--color-ivory);
+        --border-light: rgba(255, 255, 255, 0.05);
+    }
+}
